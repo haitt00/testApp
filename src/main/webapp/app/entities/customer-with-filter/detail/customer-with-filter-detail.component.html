@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="customerWithFilter">
+      <h2 data-cy="customerWithFilterDetailsHeading">
+        <span jhiTranslate="testApp.customerWithFilter.detail.title">Customer With Filter</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ customerWithFilter.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.customerWithFilter.name">Name</span></dt>
+        <dd>
+          <span>{{ customerWithFilter.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.customerWithFilter.address">Address</span></dt>
+        <dd>
+          <span>{{ customerWithFilter.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="testApp.customerWithFilter.phone">Phone</span></dt>
+        <dd>
+          <span>{{ customerWithFilter.phone }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/customer-with-filter', customerWithFilter.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
